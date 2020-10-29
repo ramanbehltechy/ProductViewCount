@@ -1,0 +1,36 @@
+<html>
+ <head><title>Product</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+ <body>
+   
+  <div class="container">
+    <div style="padding-left:12px"><h2> Products count </h2></div>
+ <div class="container demo">
+  <table class="datatable table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Product Id</th>
+        <th>Interval</th>
+        <th>Total views</th>
+        <th>Total Unique views</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% for (var i = 0; i < data.length; i++) { %>
+          <tr class="gradeX">
+            <td><%= data[i].ProductName %></td>
+            <td><%= data[i].Month %></td>
+            <td><%= data[i].TotalView %></td>
+            <td><%= data[i].TotalUniqueView %></td>
+          </tr>    
+         <% } %>
+    </tbody>
+  </table>
+</div>
+</div>
+ </body>
+ </html>

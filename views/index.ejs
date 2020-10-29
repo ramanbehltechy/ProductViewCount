@@ -1,0 +1,78 @@
+<html>
+ <head><title>Product View</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+</head>
+ <body>
+
+
+
+  <div class="container">
+    <form id= "form" method="GET" action="/product">
+      <h2>View product count </h2>
+  <div class="row">
+   <div class="col-md-6">
+      <select class="form-control" name="ProductName" id="ProductName" required>
+         <% for (var i = 0; i < data.length; i++) { %>
+            <option value=<%= data[i]._id %>><%= data[i]._id %></option>
+        <% } %>
+      </select>
+    </div>
+    </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="StartDate">Start Date</label>
+            <input type="date" class="form-control"name="StartDate" id="StartDate" placeholder="StartDate"required>
+          </div>
+        </div>
+        <!--  col-md-6   -->
+  
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="EndDate">End Date </label>
+            <input type="date" class="form-control" name="EndDate" id="EndDate"   placeholder="EndDate"required>
+          </div>
+        </div>
+        <!--  col-md-6   -->
+      </div>
+      <!--  row   -->
+  
+  
+      <label for="contact-preference">Select Interval</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="viewDate" id="daily" value="Daily"  onclick=hideEndDate(false)>Daily
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="viewDate" id="weekly" value="Weekly"  onclick=hideEndDate(false) >Weekly
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="viewDate" id="monthly" value="Monthly"  onclick=hideEndDate(false) checked>Monthly
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="viewDate" id="custom" value="Custom" onclick=hideEndDate(true) >Custom
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">View records</button>
+    </form>
+  </div>
+ </body>
+ </html>
+ <script>
+$(document).ready(function() {
+   $("#form").validate();
+});
+function hideEndDate(isSelected) {
+   isCustom =isSelected;
+}
+   </script>
